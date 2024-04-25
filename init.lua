@@ -163,6 +163,7 @@ require('lazy').setup({
   -- Lualine clearly not working
   {
     'nvim-lualine/lualine.nvim',
+    opts = {},
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 
