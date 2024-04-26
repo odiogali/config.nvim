@@ -1,4 +1,4 @@
--- Set <space> as the leader key See `:help mapleader`
+key See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -26,7 +26,7 @@ vim.opt.showmode = true
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+--  See `:help 'clipboard'`RR
 vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
@@ -86,6 +86,7 @@ vim.keymap.set('n', 'To', ':tabnew<CR>') --Tab new
 vim.keymap.set('n', 'Tn', ':tabnext<CR>') -- Tab next
 vim.keymap.set('n', 'Tp', ':tabp<CR>') -- Tab previous
 vim.keymap.set('n', 'Tc', ':tabclose<CR>') -- Tab close
+vim.keymap.set('n', 'mm', ':Ex<CR>')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -166,6 +167,23 @@ require('lazy').setup({
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 
+  {
+    'mbbill/undotree',
+    opts = {},
+    config = function() end,
+  },
+
+  {
+    'theprimeagen/harpoon',
+    opts = {},
+    config = function() end,
+  },
+
+  {
+    'tpope/vim-fugitive',
+    opts = {},
+    config = function() end,
+  },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -308,6 +326,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -801,6 +820,8 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.undotree',
+  -- require 'kickstart.plugins.harpoon',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
@@ -835,3 +856,4 @@ require('lazy').setup({
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
