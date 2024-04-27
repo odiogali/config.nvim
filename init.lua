@@ -1,5 +1,3 @@
-key See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -7,15 +5,8 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
 
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -170,19 +161,42 @@ require('lazy').setup({
   {
     'mbbill/undotree',
     opts = {},
-    config = function() end,
+    config = function()
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+    end,
   },
 
   {
     'theprimeagen/harpoon',
     opts = {},
-    config = function() end,
+    config = function()
+      local mark = require 'harpoon.mark'
+      local ui = require 'harpoon.ui'
+
+      vim.keymap.set('n', '<leader>a', mark.add_file)
+      vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
+
+      vim.keymap.set('n', '<C-h>', function()
+        ui.nav_file(1)
+      end)
+      vim.keymap.set('n', '<C-t>', function()
+        ui.nav_file(2)
+      end)
+      vim.keymap.set('n', '<C-n>', function()
+        ui.nav_file(3)
+      end)
+      vim.keymap.set('n', '<C-s>', function()
+        ui.nav_file(4)
+      end)
+    end,
   },
 
   {
     'tpope/vim-fugitive',
     opts = {},
-    config = function() end,
+    config = function()
+      vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+    end,
   },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -854,6 +868,3 @@ require('lazy').setup({
     },
   },
 })
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
