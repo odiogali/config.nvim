@@ -3,7 +3,9 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-vim.opt.guifont = 'UbuntuMono Nerd Font Mono'
+vim.opt.termguicolors = true
+vim.opt.guifont = "UbuntuMono Nerd Font Mono:h18"
+vim.opt.cmdheight = 1
 
 -- Make line numbers default
 vim.opt.number = true
