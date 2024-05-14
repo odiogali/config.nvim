@@ -743,13 +743,14 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'EdenEast/nightfox.nvim',
+    'AlexvZyl/nordic.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'carbonfox'
+      vim.cmd.colorscheme 'nordic'
+      vim.o.background = 'dark'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -765,7 +766,7 @@ require('lazy').setup({
     },
     event = 'VeryLazy',
     keys = {
-      { '<leader>e', ':Neotree toggle float<CR>', silent = true, desc = 'Float File Explorer' },
+      { '<leader>tf', ':Neotree toggle float<CR>', silent = true, desc = 'Float File Explorer' },
       { '<leader><tab>', ':Neotree toggle left<CR>', silent = true, desc = 'Left File Explorer' },
     },
     config = function()
