@@ -1,4 +1,3 @@
-# Dot Files?
 ## Changes to Kickstart.nvim
 - Some LSP changes - Java, Python, GO
 - Theme change: Kanagawa default theme
