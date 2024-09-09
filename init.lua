@@ -372,6 +372,18 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    event = 'VeryLazy',
+    opts = function()
+      local nullls = require 'null-ls'
+      return {
+        sources = {
+          nullls.builtins.formatting.clang_format,
+        },
+      }
+    end,
+  },
 
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
