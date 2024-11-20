@@ -160,7 +160,9 @@ require('lazy').setup({
 
   {
     'nvim-lualine/lualine.nvim',
-    opts = {},
+    opts = {
+      theme = 'gruvbox-material',
+    },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 
@@ -791,13 +793,13 @@ require('lazy').setup({
   --  end,
   --},
   {
-    'luisiacc/gruvbox-baby',
+    'sainnhe/gruvbox-material',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'gruvbox-baby'
+      vim.cmd.colorscheme 'gruvbox-material'
       -- vim.o.background = 'dark'
 
       -- You can configure highlights by doing something like:
