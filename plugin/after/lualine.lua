@@ -145,7 +145,7 @@ local function get_current_function_name()
 
   -- Traverse up the parent nodes to find the function definition
   while expr do
-    if expr:type() == 'function_definition' then
+    if expr:type() == 'function_definition' or expr:type() == 'function_declaration' then
       break
     end
     expr = expr:parent()
@@ -166,7 +166,7 @@ local function get_current_function_name()
 
   local i = 1
   local res = ''
-  while i < #function_name and string.sub(function_name, i, i) ~= '(' do
+  while i <= #function_name and string.sub(function_name, i, i) ~= '(' do
     res = res .. string.sub(function_name, i, i)
     i = i + 1
   end
