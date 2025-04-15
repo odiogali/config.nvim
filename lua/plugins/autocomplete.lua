@@ -26,6 +26,14 @@ return { -- Autocompletion
         -- },
       },
     },
+    {
+
+      'rafamadriz/friendly-snippets',
+
+      config = function()
+        require('luasnip.loaders.from_vscode').lazy_load()
+      end,
+    },
     'saadparwaiz1/cmp_luasnip',
 
     -- Adds other completion capabilities.
@@ -65,8 +73,8 @@ return { -- Autocompletion
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
-        ['<C-y>'] = cmp.mapping.confirm { select = true },
-
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
         --['<CR>'] = cmp.mapping.confirm { select = true },

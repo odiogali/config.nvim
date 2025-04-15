@@ -16,7 +16,7 @@ vim.keymap.set('n', 'To', ':tabnew<CR>') --Tab new
 vim.keymap.set('n', 'Tn', ':tabnext<CR>') -- Tab next
 vim.keymap.set('n', 'Tp', ':tabp<CR>') -- Tab previous
 vim.keymap.set('n', 'Tc', ':tabclose<CR>') -- Tab close
-vim.keymap.set('n', 'mm', ':Ex<CR>')
+vim.keymap.set('n', 'mm', ':Oil<CR>')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

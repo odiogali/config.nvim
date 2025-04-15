@@ -2,9 +2,19 @@ return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
-    { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+    {
+      'williamboman/mason.nvim',
+      opts = {
+        ensure_installed = {
+          'prettier',
+          'typescript-language-server',
+        },
+      },
+      config = true,
+    }, -- NOTE: Must be loaded before dependants
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'hrsh7th/cmp-nvim-lsp',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -13,7 +23,6 @@ return { -- LSP Configuration & Plugins
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     { 'folke/neodev.nvim', opts = {} },
-    {'hrsh7th/cmp-nvim-lsp', opts = {}},
   },
   config = function()
     -- Brief aside: **What is LSP?**
@@ -161,13 +170,20 @@ return { -- LSP Configuration & Plugins
       pyright = {},
       rust_analyzer = {},
       hls = {},
+      glsl_analyzer = {
+        filetypes = {
+          'glsl',
+          'vert',
+          'frag',
+        },
+      },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      -- tsserver = {},
+      ts_ls = {},
       --
 
       lua_ls = {
