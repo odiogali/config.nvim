@@ -1,5 +1,6 @@
 return {
   'christoomey/vim-tmux-navigator',
+  lazy = false, -- by loading navigator first, ctrl keys can go to plugin
   cmd = {
     'TmuxNavigateLeft',
     'TmuxNavigateDown',
