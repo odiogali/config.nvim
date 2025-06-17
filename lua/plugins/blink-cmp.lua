@@ -34,9 +34,6 @@ return {
       ['<C-p>'] = { 'select_prev', 'fallback' },
       ['<C-n>'] = { 'select_next', 'fallback' },
 
-      ['<S-k>'] = { 'scroll_documentation_up', 'fallback' },
-      ['<S-j>'] = { 'scroll_documentation_down', 'fallback' },
-
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide', 'fallback' },
     }
