@@ -11,6 +11,7 @@ vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
 vim.opt.guifont = 'UbuntuMono Nerd Font Mono:h18'
 vim.opt.cmdheight = 1
+vim.opt.wrap = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
